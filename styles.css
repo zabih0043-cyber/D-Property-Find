@@ -146,10 +146,10 @@ p { line-height: 1.65; }
 .section--dark { background: var(--bg-deep); color: var(--ink-inverse); }
 
 /* Photo background — used for How It Works section */
-/* Pexels: aerial Cape Town coastal view — ID 1591373 by Sander Wehkamp */
+/* Local: assets/How It Works.jpg */
 .section--photo {
   position: relative;
-  background-image: url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-image: url('assets/How It Works.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -161,7 +161,7 @@ p { line-height: 1.65; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(10, 15, 20, 0.80);
+  background: rgba(10, 15, 20, 0.55);
   z-index: -1;
 }
 
@@ -175,10 +175,6 @@ p { line-height: 1.65; }
 .section--photo .step-title       { color: var(--ink-inverse); }
 .section--photo .step-desc        { color: rgba(255, 255, 255, 0.70); }
 
-/* Disable fixed attachment on mobile — avoids Safari jank */
-@media (max-width: 768px) {
-  .section--photo { background-attachment: scroll; }
-}
 
 .section-header {
   text-align: center;
@@ -280,29 +276,32 @@ p { line-height: 1.65; }
 ───────────────────────────────────────────────────────────── */
 .mobile-menu {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
   z-index: 200;
   background: var(--bg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 80px 32px 40px;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
+  transform: translateX(100%);
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
 .mobile-menu.is-open {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .mobile-menu-close {
   position: absolute;
   top: 20px;
-  right: 24px;
+  right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,23 +313,23 @@ p { line-height: 1.65; }
 .mobile-menu nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .mobile-menu nav a {
-  font-family: var(--font-serif);
-  font-size: var(--text-h2);
+  font-family: var(--font-sans);
+  font-size: 1rem;
   font-weight: 500;
   color: var(--ink);
+  padding: 10px 0;
   transition: color var(--ease);
 }
 
 .mobile-menu nav a:hover { color: var(--accent); }
 
 .mobile-menu-bottom {
-  position: absolute;
-  bottom: 48px;
+  margin-top: auto;
 }
 
 /* ─────────────────────────────────────────────────────────────
